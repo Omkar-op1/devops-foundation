@@ -51,3 +51,51 @@ Solution:
 - We can create files using terminal
 - Branching allows safe experimentation without affecting the main codebase.
 - Findout use of .md files an format to write it
+
+
+
+---
+
+
+# Day 4: Infrastructure Automation
+
+## ◈ Technical Summary
+Learned **Infrastructure as Code (IaC)** using:
+- Bash scripting (`.sh`) for automation
+- YAML (`.yaml`) for configuration
+- Basic GitHub Actions workflow
+
+---
+
+## ◈ Bug Log
+**Issue:** 
+`bash setup_server.sh` was opening in WSL instead of Git Bash, but no WSL distro was installed.
+
+**Cause:**  
+WSL was set as default shell.
+
+**Fix:**  
+Switched to Git Bash terminal by Adjusted terminal/profile settings  
+
+---
+
+## ◈ Conceptual Reflection 
+
+**Difference between .sh and .yaml:**
+
+.sh (Shell Script) → Imperative (Action-based)
+- Tells the system how to do something step-by-step
+- Example: create folders, write files, install packages
+.yaml (Configuration File) → Declarative (State-based)
+- Tells the system what the final state should be
+- Example: “Run 3 instances of my app on port 80”
+
+**Why use code over manual setup?**
+we prefer code over manual setup of 100 servers because of :
+
+- Speed : Setup happens in seconds instead of taking hours
+- Consistency : Same setup every time (no human error)
+- Reproducibility : Recreate same environment easily
+- Automation : Integrates with CI/CD pipelines
+
+---

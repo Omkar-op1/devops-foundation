@@ -1,0 +1,11 @@
+name: Day4_Automation_Check
+on: [push] # The trigger
+jobs:
+  test_script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Run our Setup Script
+        run: bash setup_server.sh
