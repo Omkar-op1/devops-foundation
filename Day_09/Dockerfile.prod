@@ -1,0 +1,27 @@
+# STAGE 1: Builder
+FROM python:3.11-slim AS builder
+
+WORKDIR /build
+
+COPY requirements.txt .
+RUN pip install --no-cache-dir --user -r requirements.txt
+
+# STAGE 2: Runtime
+FROM python:3.11-slim
+
+RUN useradd -m myuser
+
+WORKDIR /app
+
+# Copy only installed user packages from builder.
+COPY --from=builder /root/.local /home/myuser/.local
+COPY . .
+
+RUN chown -R myuser:myuser /app /home/myuser/.local
+
+ENV PATH=/home/myuser/.local/bin:$PATH
+
+USER myuser
+
+EXPOSE 5000
+CMD ["python", "app.py"]
