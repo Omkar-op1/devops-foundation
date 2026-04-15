@@ -6,7 +6,7 @@ RUN useradd -m myuser
 WORKDIR /app
 
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r requirements.txt
+UN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
