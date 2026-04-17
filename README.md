@@ -1,4 +1,8 @@
-Current Status : Steup Completed
-Added Asset : network_config.txt, server_setup.sh, README.md
+# DevOps Foundation
 
-Testing Branch creating and merge
+A small project for DevOps fundamentals.
+
+## Overview
+
+This repository contains DevOps foundation materials and practices.
+
