@@ -20,6 +20,14 @@ app.get('/metrics', async (req, res) => {
 	}
 });
 
-app.listen(PORT, () => {
-	console.log(`Server running on http://localhost:${PORT}`);
-});
+function startServer(port = PORT) {
+	return app.listen(port, () => {
+		console.log(`Server running on http://localhost:${port}`);
+	});
+}
+
+if (require.main === module) {
+	startServer();
+}
+
+module.exports = { app, startServer };
