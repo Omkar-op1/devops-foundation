@@ -1,13 +1,19 @@
-# A typical Deployment Configuration
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-name: web-server-alpha
-version: 1.0.2
-specification:
-replicas: 3 # Tells the cloud to run 3 copies of your app
-environment: production
-ports:
-- 80
-- 443
-resources:
-cpu: "500m"
-memory: "256Mi"
+  name: meetmux-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: meetmux
+  template:
+    metadata:
+      labels:
+        app: meetmux
+    spec:
+      containers:
+      - name: api-container
+        image: nginx:latest
+        ports:
+        - containerPort: 80
